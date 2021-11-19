@@ -15,6 +15,7 @@ endif
 let g:colors_name = 'material'
 let g:material_theme_style = get(g:, 'material_theme_style', 'default')
 let g:material_terminal_italics = get(g:, 'material_terminal_italics', 0)
+let g:material_transparent = get(g:, 'material_transparent', 0)
 
 " For backwards compatibility
 if (g:material_theme_style == 'dark')
@@ -588,3 +589,8 @@ call s:SetHighlight('TSTagAttribute', s:purple, '', '')
 call s:SetHighlight('TSType', s:yellow, '', '')
 call s:SetHighlight('TSVariable', s:fg, '', '')
 call s:SetHighlight('TSVariableBuiltin', s:fg, '', '')
+
+" add transparent option
+if g:material_transparent
+    exec 'hi! Normal guibg=NONE ctermbg=NONE'
+endif
